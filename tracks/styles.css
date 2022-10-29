@@ -1,0 +1,14 @@
+main {
+    margin: 30px;
+}
+
+#map {
+    border-radius: 30px;
+}
+
+#participants {
+    border-radius: 30px;
+    background-color: white;
+    margin-left: 30px;
+    padding: 20px;
+}

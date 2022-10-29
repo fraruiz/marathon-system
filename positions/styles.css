@@ -1,0 +1,9 @@
+main {
+    width: 90%;
+}
+
+#map {
+    margin: 50px;
+    height: 100%;
+    border-radius: 30px;
+}
