@@ -18,8 +18,8 @@
 	<link href="styles.css" rel="stylesheet">
 
 	<script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
-        integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
-        crossorigin=""></script>
+	        integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+	        crossorigin=""></script>
 
 </head>
 <body class="d-flex h-100 text-center text-bg-dark">
@@ -32,13 +32,35 @@
 				<a class="nav-link fw-bold py-1 px-0" href="../index.html">Home</a>
 				<a class="nav-link fw-bold py-1 px-0" href="../enrollment/index.html">Enrollment</a>
 				<a class="nav-link fw-bold py-1 px-0" aria-current="page" href="../offices/index.html">Health Check Offices</a>
-				<a class="nav-link fw-bold py-1 px-0" href="../tracks/index.html">Tracks</a>
 				<a class="nav-link fw-bold py-1 px-0 active" href="index.html">Positions</a>
 			</nav>
 		</div>
 	</header>
 
-	<main id="map">
+	<main class="container w-100 h-100">
+		<div class="row w-100 h-100">
+			<div id="participantList" class="col-4">
+				<div class="d-grid gap-2" id="officeField">
+					<table id="participants" class="table">
+						<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Participant</th>
+							<th scope="col">Time</th>
+							<th scope="col">Track</th>
+						</tr>
+						</thead>
+						<tbody id="participantsTableBody">
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div id="map" class="col">
+
+			</div>
+
+		</div>
+
 	</main>
 
 	<footer class="mt-auto text-white-50">

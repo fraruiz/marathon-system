@@ -1,18 +1,15 @@
 {
-    "offices":
-    [
-    {"id": 1,
-    "name": "Hospital Dr. Raúl F. Larcade",
-    "address": "Av Pres. Juan Domingo Perón 2311",
-    "phoneNumber": "4451-5828",
-    "latitude": "-34.53465663057981",
-    "longitude": "-58.7226222731695"
+  "offices": [
+    {
+      "id": 1,
+      "name": "Hospital Dr. Raúl F. Larcade",
+      "address": "Av Pres. Juan Domingo Perón 2311",
+      "phoneNumber": "4451-5828",
+      "latitude": "-34.53465663057981",
+      "longitude": "-58.7226222731695"
     }
-    
-    
-    ]
-    
-    }
+  ]
+}
     
     
     
