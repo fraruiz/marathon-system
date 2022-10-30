@@ -1,9 +1,14 @@
 main {
-    width: 90%;
+    margin: 30px;
 }
 
 #map {
-    margin: 50px;
-    height: 100%;
     border-radius: 30px;
+}
+
+#officesList {
+    border-radius: 30px;
+    background-color: white;
+    margin-right: 30px;
+    padding: 20px;
 }
