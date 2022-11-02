@@ -1,26 +1,61 @@
-const map = L.map('map').setView([-34.5231018, -58.7026663], 15);
-
+const map = L.map('map').setView([-34.53115480258722, -58.739022175444376], 13);
+let officeMarkers =  addOfficesToView();
 
 window.addEventListener('load', async () => {
     loadMap();
-    addOfficesToView().then(r => console.log(r));
 });
 
 
 async function addOfficesToView() {
-    const offices = await searchOffices()
+    const offices = await searchOffices();
 
-    const officeField = document.getElementById("officeField")
+    const officeField = document.getElementById("officeField");
 
-    let content = ""
+    let content = "";
+
+    let markerList = [];
+    
 
     offices.forEach(office => {
-        content += `<button class="btn btn-light" type="button" onclick="showRunnerPerformance(${office.id})"><b>${office.name}</b><br> ${office.address}</button>`;
-        addPinOnMap(office.name, office.latitude, office.longitude)
-    })
+       
+        let marker = L.marker([office.latitude, office.longitude],{title: office.name}).addTo(map);
+
+        map.addLayer(marker);
+        marker.bindPopup(`<b>${office.name}</b><br />${office.address} <br> Tel: ${office.phoneNumber}`);
+        
+        content += `<button class="btn btn-light" type="button" onclick="centerMapToOffice('${office.name}')"><b>${office.name}</b><br />${office.address} <br> Tel: ${office.phoneNumber}</button>`;
+        
+        markerList.push(marker);
+
+     
+    });
+
+    
 
     officeField.innerHTML = content
+ 
+   
+    map.closePopup();
+    return markerList;
 }
+
+async function centerMapToOffice(officeName) {
+   
+    markerList = await officeMarkers;
+    selectedOffice =  markerList.find((elem) => {
+        if (elem.options.title == officeName) {
+            return true;
+        }
+    });
+    
+    
+    map.closePopup();
+    map.flyTo(selectedOffice.getLatLng(), 15);
+    selectedOffice.openPopup();
+  
+    
+}
+
 
 
 async function searchOffices() {
@@ -36,22 +71,9 @@ async function searchOffices() {
     return values['offices']
 }
 
+
 function loadMap() {
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
-}
-
-function addPinOnMap(description, latitude, longitude) {
-
-    let officeIcon = L.icon({
-        iconUrl: "officeIcon.webp",
-        //markerColor: 'red'
-     
-      });
-
-    L.marker([latitude, longitude], )
-     .addTo(map)
-     .bindPopup(description)
-     .openPopup();
 }
