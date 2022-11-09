@@ -15,10 +15,10 @@ async function loadPositions() {
     for (let i = 0; i < positions.length; i++){
         const position = positions[i];
 
-        content += `<tr><th scope="row">${i + 1}</th><td>${position.runner}</td><td>${position.time}</td><td><button type="button" onclick="showRunnerPerformance(${position.runnerId})" class="btn btn-light">🗺</button></td></tr>`
+        content += `<button class="btn btn-light w-100 mb-2" type="button" onclick="showRunnerPerformance(${position.runnerId})"><b>Position nº${i + 1}: ${position.runner}</b><br />${position.time}</button>`;
     }
 
-    document.getElementById("participantsTableBody").innerHTML = content
+    document.getElementById("participantList").innerHTML = content
 }
 
 async function searchPositions() {
@@ -81,23 +81,20 @@ function showRunnerPerformance(runnerId) {
     clearMap()
 
     findTrackByRunner(runnerId)
-        .then(checkpoints => {
-            const coordinates = []
-
-            for (const checkpoint of checkpoints) {
-                const dateTime = new Date(checkpoint['timeStamp']).toUTCString();
-                const latitude = checkpoint['coordinate']['lat']
-                const longitude = checkpoint['coordinate']['lon']
-
-                addPinOnMap(dateTime, latitude, longitude)
-                coordinates.push([latitude, longitude])
-
-                setTimeout(() => {}, 5000)
-            }
-
-            addPathLineOnMap(coordinates)
-        })
+        .then(checkpoints => pinCheckpoints(checkpoints))
         .catch(reason => console.error(reason))
+}
+
+function pinCheckpoints(checkpoints) {
+    for (let index = 0; index < checkpoints.length; index++) {
+        const checkpoint = checkpoints[index];
+        
+        const dateTime = new Date(checkpoint['timeStamp']).toUTCString();
+        const latitude = checkpoint['coordinate']['lat']
+        const longitude = checkpoint['coordinate']['lon']
+
+        setTimeout(() => addPinOnMap(dateTime, latitude, longitude), 2000 * (index + 1))
+    }
 }
 
 function clearMap() {
@@ -108,13 +105,9 @@ function clearMap() {
     pathLines.splice(0, pathLines - 1);
 }
 
-function addPathLineOnMap(coordinates) {
-    const pathLine = L.polyline(coordinates).addTo(map);
-
-    pathLines.push(pathLine)
-}
-
 function addPinOnMap(description, latitude, longitude) {
+    console.log("pin")
+
     const marker = L.marker([latitude, longitude])
                     .addTo(map)
                     .bindPopup(description)
