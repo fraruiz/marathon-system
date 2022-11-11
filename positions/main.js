@@ -118,21 +118,20 @@ function addPinOnMap(description, latitude, longitude) {
         iconoAdecuado = L.icon({
             iconUrl: 'icon-right.png',
             shadowUrl: 'shadow-right.png',
-            iconSize:     [41, 41], // size of the icon
-            shadowSize:   [41, 41], // size of the shadow
-            shadowAnchor: [12, 10],  // the same for the shadow
-            iconAnchor:   [12, 10], // point of the icon which will correspond to marker's location
-            popupAnchor:  [18, -10] // point from which the popup should open relative to the iconAnchor
-        });
+            iconSize:     [41, 41], 
+            shadowSize:   [41, 41], 
+            shadowAnchor: [12, 10], 
+            iconAnchor:   [12, 10], 
+            popupAnchor:  [18, -10] })
     } else {
         iconoAdecuado = L.icon({
             iconUrl: 'icon-left.png',
             shadowUrl: 'shadow-left.png',
-            iconSize:     [41, 41], // size of the icon
-            shadowSize:   [41, 41], // size of the shadow
-            iconAnchor:   [8, 41], // point of the icon which will correspond to marker's location
-            shadowAnchor: [8, 41],  // the same for the shadow
-            popupAnchor:  [5, -41] // point from which the popup should open relative to the iconAnchor
+            iconSize:     [41, 41], 
+            shadowSize:   [41, 41],
+            iconAnchor:   [8, 41], 
+            shadowAnchor: [8, 41],  
+            popupAnchor:  [5, -41] 
         });
     }
 
