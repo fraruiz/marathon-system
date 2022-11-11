@@ -4,7 +4,7 @@
             "id": 1,
             "name": "Hospital Dr. Raúl F. Larcade",
             "address": "Av Pres. Juan Domingo Perón 2311, San Miguel.",
-            "phoneNumber": "4451-5828",
+            "officeHours": "Lun a Vie de 10hs a 20hs",
             "latitude": "-34.53465663057981",
             "longitude": "-58.7226222731695"
         },
@@ -12,7 +12,7 @@
             "id": 2,
             "name": "Hospital San Miguel Arcángel",
             "address": "Mattaldi 1057, Bella Vista.",
-            "phoneNumber": "4451-3151",
+            "officeHours": "Lun a Vie de 09hs a 18hs",
             "latitude": "-34.561824587372314",
             "longitude": "-58.67874686951985"
         },
@@ -20,7 +20,7 @@
             "id": 3,
             "name": "Hospital Santa María",
             "address": "Defensa y Balbín, Santa María.",
-            "phoneNumber": "4664-4652",
+            "officeHours": "Lun a Dom de 08hs a 14hs",
             "latitude": "-34.56328977069551",
             "longitude": "-58.73785073607584"
         },
@@ -28,7 +28,7 @@
             "id": 4,
             "name": "Hospital Dr. Alberto Duhau",
             "address": "Gral. Lavalle 2066, José C. Paz",
-            "phoneNumber": "2120-1600",
+            "officeHours": "Lun a Sab de 12hs a 18hs",
             "latitude": "-34.522743329576095",
             "longitude": "-58.7531471670156"
         },
@@ -36,7 +36,7 @@
             "id": 5,
             "name": "Hospital Mercante",
             "address": "René Favaloro 4750, José C. Paz",
-            "phoneNumber": "02320–440000",
+            "officeHours": "Lun a Vie de 08hs a 12hs",
             "latitude": "-34.51602189503587",
             "longitude": "-58.74064246079355"
         },
@@ -44,7 +44,7 @@
             "id": 6,
             "name": "Unidad de Pronta Atención 15",
             "address": "Ayacucho e/ Lima y Naciones Unidas, José C. Paz",
-            "phoneNumber": "02320–440000",
+            "officeHours": "Lun a Vie de 09hs a 18hs",
             "latitude": "-34.51802020154591",
             "longitude": "-58.806255958603245"
         },
@@ -52,7 +52,7 @@
             "id": 7,
             "name": "Hospital De Trauma Federico Abete",
             "address": "Miraflores 123, Pablo Nogués.",
-            "phoneNumber": "4469-9600",
+            "officeHours": "Lun a Vie de 8hs a 12hs",
             "latitude": "-34.495682080848304",
             "longitude": "-58.7090653016838"
         },
@@ -60,7 +60,7 @@
             "id": 8,
             "name": "Hospital Polo Malvinas",
             "address": "Av. Pres. Arturo Umberto Illia 5200,Los Polvorines.",
-            "phoneNumber": "4469-9600",
+            "officeHours": "Lun a Vie de 09hs a 18hs",
             "latitude": "-34.52018014217939",
             "longitude": "-58.71710899733035"
         }

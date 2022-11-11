@@ -21,9 +21,9 @@ async function addOfficesToView() {
         let marker = L.marker([office.latitude, office.longitude],{title: office.name}).addTo(map);
 
         map.addLayer(marker);
-        marker.bindPopup(`<b>${office.name}</b><br />${office.address} <br> Tel: ${office.phoneNumber}`);
+        marker.bindPopup(`<b>${office.name}</b><br />${office.address} <br> Horario: ${office.officeHours}`);
         
-        content += `<button class="btn btn-light" type="button" onclick="centerMapToOffice('${office.name}')"><b>${office.name}</b><br />${office.address} <br> Tel: ${office.phoneNumber}</button>`;
+        content += `<button class="btn btn-light" type="button" onclick="centerMapToOffice('${office.name}')"><b>${office.name}</b><br />${office.address} <br> Horario: ${office.officeHours}</button>`;
         
         markerList.push(marker);
 
