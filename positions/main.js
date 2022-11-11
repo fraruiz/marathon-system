@@ -3,6 +3,25 @@ const markers = []
 const pathLines = []
 let markersCounter = 0
 
+const rightyIcon = L.icon({
+    iconUrl: 'icon-right.png',
+    shadowUrl: 'shadow-right.png',
+    iconSize:     [41, 41], 
+    shadowSize:   [41, 41], 
+    shadowAnchor: [12, 10], 
+    iconAnchor:   [12, 10], 
+    popupAnchor:  [18, -10] })
+
+const leftyIcon = L.icon({
+    iconUrl: 'icon-left.png',
+    shadowUrl: 'shadow-left.png',
+    iconSize:     [41, 41], 
+    shadowSize:   [41, 41],
+    iconAnchor:   [8, 41], 
+    shadowAnchor: [8, 41],  
+    popupAnchor:  [5, -41] 
+});
+
 window.addEventListener('load', () => {
     loadMap();
     loadPositions().then(r => console.log(r))
@@ -113,30 +132,15 @@ function clearMap() {
 function addPinOnMap(description, latitude, longitude) {
     markersCounter++;
    
-    let iconoAdecuado;
+    let adecuateIcon;
     if (markersCounter > 3) {
-        iconoAdecuado = L.icon({
-            iconUrl: 'icon-right.png',
-            shadowUrl: 'shadow-right.png',
-            iconSize:     [41, 41], 
-            shadowSize:   [41, 41], 
-            shadowAnchor: [12, 10], 
-            iconAnchor:   [12, 10], 
-            popupAnchor:  [18, -10] })
+        adecuateIcon = rightyIcon
     } else {
-        iconoAdecuado = L.icon({
-            iconUrl: 'icon-left.png',
-            shadowUrl: 'shadow-left.png',
-            iconSize:     [41, 41], 
-            shadowSize:   [41, 41],
-            iconAnchor:   [8, 41], 
-            shadowAnchor: [8, 41],  
-            popupAnchor:  [5, -41] 
-        });
+        adecuateIcon = leftyIcon
     }
 
     clearMap();
-    const marker = L.marker([latitude, longitude], {icon: iconoAdecuado})
+    const marker = L.marker([latitude, longitude], {icon: adecuateIcon})
                     .addTo(map)
                     .bindPopup(description)
                     .openPopup();
