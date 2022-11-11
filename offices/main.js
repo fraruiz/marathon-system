@@ -19,6 +19,7 @@ async function addOfficesToView() {
     offices.forEach(office => {
        
         let marker = L.marker([office.latitude, office.longitude],{title: office.name}).addTo(map);
+       
 
         map.addLayer(marker);
         marker.bindPopup(`<b>${office.name}</b><br />${office.address} <br> Horario: ${office.officeHours}`);

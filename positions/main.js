@@ -1,6 +1,7 @@
 const map = L.map('map').setView([-34.5223902,-58.7002308], 17);
 const markers = []
 const pathLines = []
+let markersCounter = 0
 
 window.addEventListener('load', () => {
     loadMap();
@@ -79,6 +80,7 @@ async function searchRunners() {
 
 function showRunnerPerformance(runnerId) {
     clearMap()
+    markersCounter = 0;
 
     findTrackByRunner(runnerId)
         .then(checkpoints => pinCheckpoints(checkpoints))
@@ -93,6 +95,9 @@ function pinCheckpoints(checkpoints) {
         const latitude = checkpoint['coordinate']['lat']
         const longitude = checkpoint['coordinate']['lon']
 
+        
+        
+       
         setTimeout(() => addPinOnMap(dateTime, latitude, longitude), 2000 * (index + 1))
     }
 }
@@ -106,14 +111,39 @@ function clearMap() {
 }
 
 function addPinOnMap(description, latitude, longitude) {
-    console.log("pin")
+    markersCounter++;
+   
+    let iconoAdecuado;
+    if (markersCounter > 3) {
+        iconoAdecuado = L.icon({
+            iconUrl: 'icon-right.png',
+            shadowUrl: 'shadow-right.png',
+            iconSize:     [41, 41], // size of the icon
+            shadowSize:   [41, 41], // size of the shadow
+            shadowAnchor: [12, 10],  // the same for the shadow
+            iconAnchor:   [12, 10], // point of the icon which will correspond to marker's location
+            popupAnchor:  [18, -10] // point from which the popup should open relative to the iconAnchor
+        });
+    } else {
+        iconoAdecuado = L.icon({
+            iconUrl: 'icon-left.png',
+            shadowUrl: 'shadow-left.png',
+            iconSize:     [41, 41], // size of the icon
+            shadowSize:   [41, 41], // size of the shadow
+            iconAnchor:   [8, 41], // point of the icon which will correspond to marker's location
+            shadowAnchor: [8, 41],  // the same for the shadow
+            popupAnchor:  [5, -41] // point from which the popup should open relative to the iconAnchor
+        });
+    }
 
-    const marker = L.marker([latitude, longitude])
+    clearMap();
+    const marker = L.marker([latitude, longitude], {icon: iconoAdecuado})
                     .addTo(map)
                     .bindPopup(description)
                     .openPopup();
 
     markers.push(marker)
+    
 }
 
 function loadMap() {
