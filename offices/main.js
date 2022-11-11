@@ -18,7 +18,13 @@ async function addOfficesToView() {
 
     offices.forEach(office => {
        
-        let marker = L.marker([office.latitude, office.longitude],{title: office.name}).addTo(map);
+        let icon = L.icon({
+            iconUrl: 'officeIcon.png',
+            iconSize:     [60, 60], 
+            iconAnchor:   [30, 60], 
+            popupAnchor:  [0, -61] 
+        });
+        let marker = L.marker([office.latitude, office.longitude],{title: office.name, icon: icon}).addTo(map);
        
 
         map.addLayer(marker);
